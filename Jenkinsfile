@@ -12,8 +12,7 @@ pipeline {
             when { branch 'dev' }
             steps {
                 dir('javaapp-pipeline') {
-          //          sh 'mvn clean test'
-                    echo "Test OK"
+                    sh 'mvn clean test'
                 }
             }
         }
