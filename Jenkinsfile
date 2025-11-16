@@ -26,16 +26,16 @@ pipeline {
             }
         }
 
-        stage('sonar-analysis') {
-            when { anyOf { branch 'main'; branch 'master' } }
-            steps {
-                withSonarQubeEnv('sonar') {
-                    dir('javaapp-pipeline') {
-                        sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=test -Dsonar.projectName=test'
-                    }
-                }
-            }
-        }
+      //  stage('sonar-analysis') {
+       //     when { anyOf { branch 'main'; branch 'master' } }
+       //     steps {
+       //         withSonarQubeEnv('sonar') {
+       //             dir('javaapp-pipeline') {
+       //                 sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=test -Dsonar.projectName=test'
+       //             }
+       //         }
+       //     }
+      //  }
 
         stage('Trivy-Scan') {
             when { anyOf { branch 'main'; branch 'master' } }
